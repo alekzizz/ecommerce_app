@@ -7,7 +7,7 @@ const CategoryItem = ({ category }) => {
       <div
         className="background-image"
         style={{
-          "background-image": `url(${imageUrl})`,
+          backgroundImage: `url(${imageUrl})`,
         }}
       />
       <div className="category-body-container">
