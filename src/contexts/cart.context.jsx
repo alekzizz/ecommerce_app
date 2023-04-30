@@ -44,7 +44,7 @@ const INITIAL_STATE = {
   isCartOpen: false,
   cartItems: [],
   cartCount: 0,
-  totalPrice: 0,
+  cartTotal: 0,
 };
 
 const cartReducer = (state, action) => {
@@ -74,11 +74,11 @@ export const CartContext = createContext({
   removeItemFromCart: () => {},
   clearItemFromCart: () => {},
   cartCount: 0,
-  totalPrice: 0,
+  cartTotal: 0,
 });
 
 export const CartProvider = ({ children }) => {
-  const [{ cartCount, totalPrice, cartItems, isCartOpen }, dispatch] =
+  const [{ cartCount, cartTotal, cartItems, isCartOpen }, dispatch] =
     useReducer(cartReducer, INITIAL_STATE);
 
   const updateCartItemsReducer = (cartItems) => {
@@ -128,7 +128,7 @@ export const CartProvider = ({ children }) => {
     removeItemFromCart,
     clearItemFromCart,
     cartCount,
-    totalPrice,
+    cartTotal,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
